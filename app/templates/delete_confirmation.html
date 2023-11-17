@@ -1,0 +1,12 @@
+<!-- delete_confirmation.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Confirm Deletion</h1>
+    <p>Do you want to delete {{ filename }}?</p>
+    <form action="/confirmdelete/{{ filename }}" method="post">
+        <button class="delete_button" type="submit">Yes, Delete</button>
+        <a href="/dashboard"><button type="button">No, Cancel</button></a>
+    </form>
+{% endblock %}

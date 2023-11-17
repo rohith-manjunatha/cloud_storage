@@ -1,0 +1,9 @@
+<!-- upload_success.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>File Uploaded Successfully</h1>
+    <p>The file "{{ filename }}" has been successfully uploaded.</p>
+    <a href="/dashboard"><button>Go to Dashboard</button></a>
+{% endblock %}

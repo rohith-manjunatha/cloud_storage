@@ -1,0 +1,11 @@
+<!-- download_success.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>File Download</h1>
+    <p>The file "{{ filename }}" is ready for download.</p>
+    <a href="{{ download_url }}" download><button>Download {{ filename }}</button></a>
+    <br>
+    <a href="/dashboard"><button>Go to Dashboard</button></a>
+{% endblock %}
