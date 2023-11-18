@@ -1,12 +1,13 @@
 # config.py
 
 class AWSConfig:
-    ACCESS_KEY =  ""
-    SECRET_KEY =  ""
-    S3_BUCKET_NAME = "cloud-storage-app"  # "your-bucket_name"
+    ACCESS_KEY =  "AWS_ACCESS_KEY"
+    SECRET_KEY =  "AWS_SECRET_KEY"
+    S3_BUCKET_NAME = "cloud-storage-app"
 
 class RDSConfig:
-    ENDPOINT = "your-rds-endpoint"
-    USERNAME = "your-rds-username"
-    PASSWORD = "your-rds-password"
-    DATABASE_NAME = "your-rds-database-name"
+    ENDPOINT = "ENDPOINT"
+    USERNAME = "admin"
+    PASSWORD = "admin123"
+    DATABASE_NAME = "cloud_storage"
+    PORT = 3306

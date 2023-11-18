@@ -21,28 +21,14 @@ templates = Jinja2Templates(directory="app/templates")
 # Example: SessionMiddleware for user authentication (use a more secure method in production)
 app.add_middleware(SessionMiddleware, secret_key="secret_key")
 
-# connection = pymysql.connect(host=RDSConfig.ENDPOINT,
-#                              user=RDSConfig.USERNAME,
-#                              password=RDSConfig.PASSWORD,
-#                              database=RDSConfig.DATABASE_NAME,
-#                              charset='utf8mb4',
-#                              cursorclass=pymysql.cursors.DictCursor)
-
-# create table users (
-# user_id int auto_increment primary key,
-# username varchar(255) unique not null,
-# password varchar(255) not null COLLATE utf8mb4_bin,
-# name varchar(255),
-# email varchar(255) unique not null
-# );
-
 config = {
-  'user': 'root',
-  'password': 'root',
-  'host': 'localhost',
-  'port': 3306,
-  'database': 'cloud_storage'
+  'user': RDSConfig.USERNAME,
+  'password': RDSConfig.PASSWORD,
+  'host': RDSConfig.ENDPOINT,
+  'port': RDSConfig.PORT,
+  'database': RDSConfig.DATABASE_NAME
 }
+
 connection = pymysql.connect(**config)
 
 def authenticate_user(username, password):
