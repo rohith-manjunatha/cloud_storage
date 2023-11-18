@@ -101,13 +101,13 @@ async def logout(request: Request):
     request.session.clear()
     return RedirectResponse("/login")
 
-@app.get("/signup", response_class=HTMLResponse)
-async def signup_page(request: Request, message: str = None):
-    return templates.TemplateResponse("signup.html", {"request": request, "message": message})
+@app.get("/share", response_class=HTMLResponse)
+async def share_page(request: Request, message: str = None):
+    return templates.TemplateResponse("share.html", {"request": request, "message": message})
 
 
-@app.post("/signup")
-async def signup(
+@app.post("/share")
+async def share(
     username: str = Form(...),
     password: str = Form(...),
     name: str = Form(...),
@@ -126,11 +126,11 @@ async def signup(
 
             if result_username:
                 message = "Username already exists. Please choose a different one."
-                return RedirectResponse("/signup?message=" + message, status_code=303)
+                return RedirectResponse("/share?message=" + message, status_code=303)
 
             if result_email:
                 message = "Email already exists. Please choose a different one."
-                return RedirectResponse("/signup?message=" + message, status_code=303)
+                return RedirectResponse("/share?message=" + message, status_code=303)
 
             # Insert the new user into the database
             query = "INSERT INTO users (username, password, name, email) VALUES (%s, %s, %s, %s)"
@@ -142,7 +142,7 @@ async def signup(
         return RedirectResponse("/login")
     except Exception as e:
         message = f"An error occurred: {str(e)}"
-        return RedirectResponse("/signup?message=" + message, status_code=303)
+        return RedirectResponse("/share?message=" + message, status_code=303)
 
 @app.get("/dashboard", response_class=HTMLResponse, dependencies=[Depends(get_current_user)])
 async def dashboard(request: Request, deleted: bool = False):
@@ -152,7 +152,6 @@ async def dashboard(request: Request, deleted: bool = False):
 
     # Get the username from the session
     username = request.session["username"]
-    print(username)
     # Retrieve a list of files from your S3 bucket (replace with actual logic)
     s3 = get_s3_client()
     files = [obj['Key'] for obj in s3.list_objects(Bucket=AWSConfig.S3_BUCKET_NAME).get('Contents', [])]

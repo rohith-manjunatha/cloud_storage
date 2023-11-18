@@ -1,8 +1,8 @@
 # config.py
 
 class AWSConfig:
-    ACCESS_KEY =  "AWS_ACCESS_KEY"
-    SECRET_KEY =  "AWS_SECRET_KEY"
+    ACCESS_KEY =  ""
+    SECRET_KEY =  ""
     S3_BUCKET_NAME = "cloud-storage-app"  # "your-bucket_name"
 
 class RDSConfig:
