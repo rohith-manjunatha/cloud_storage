@@ -1,9 +1,9 @@
 # config.py
 
 class AWSConfig:
-    ACCESS_KEY = "AWS_ACCESS_KEY"
+    ACCESS_KEY =  "AWS_ACCESS_KEY"
     SECRET_KEY =  "AWS_SECRET_KEY"
-    S3_BUCKET_NAME = "your-bucket_name"
+    S3_BUCKET_NAME = "cloud-storage-app"  # "your-bucket_name"
 
 class RDSConfig:
     ENDPOINT = "your-rds-endpoint"

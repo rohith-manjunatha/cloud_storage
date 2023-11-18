@@ -1,16 +1,15 @@
-<!-- index.html -->
+<!-- login.html -->
 
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Login</h1>
-    <form action="/login" method="post">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
-        <br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-        <br>
-        <button type="submit">Login</button>
-    </form>
+    
+<div style="text-align: center; margin-top: 100px;">
+    <h1>Welcome to the Home Page</h1>
+    <p>Click the button below to login:</p>
+    <a href="/login">
+        <button>Login</button>
+    </a>
+</div>
+    
 {% endblock %}
