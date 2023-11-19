@@ -28,7 +28,6 @@ config = {
   'port': RDSConfig.PORT,
   'database': RDSConfig.DATABASE_NAME
 }
-
 connection = pymysql.connect(**config)
 
 def authenticate_user(username, password):
@@ -125,7 +124,7 @@ async def share(
         connection.commit()
 
         # Redirect to the login page on successful signup
-        return RedirectResponse("/login")
+        return RedirectResponse(url="/dashboard", status_code=302)
     except Exception as e:
         message = f"An error occurred: {str(e)}"
         return RedirectResponse("/share?message=" + message, status_code=303)

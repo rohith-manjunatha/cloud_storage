@@ -1,10 +1,10 @@
-<!-- signup.html -->
+<!-- share.html -->
 
 {% extends "base.html" %}
 
 {% block content %}
     <h1>Share To</h1>
-    <form action="/signup" method="post">
+    <form action="/share" method="post">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required>
         <br>
@@ -23,5 +23,5 @@
     <p style="color: red;">{{ message }}</p>
     {% endif %}
     <br>
-    <a href="/login">Back to Login</a>
+    <a href="/dashboard">Back to dashboard</a>
 {% endblock %}
